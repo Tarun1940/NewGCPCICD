@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/your-username/your-repo.git', '.']
+- name: 'python'
+  args: ['your_script.py']
