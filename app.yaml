@@ -1,6 +1,5 @@
-runtime: python27
+runtime: python38
 api_version: 1
-threadsafe: yes
 
 handlers:
   - url: .*
@@ -8,4 +7,4 @@ handlers:
 
 libraries:
   - name: webapp2
-    version: "2.5.2"
+    version: "latest"
