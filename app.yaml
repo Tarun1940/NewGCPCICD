@@ -1,10 +1,6 @@
-runtime: python38
+runtime: python37
 api_version: 1
 
 handlers:
-  - url: .*
-    script: demo.app
-
-libraries:
-  - name: webapp2
-    version: "latest"
+  - url: /.*
+    script: auto

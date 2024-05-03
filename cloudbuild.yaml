@@ -1,5 +1,10 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/Tarun1940/NewGCPCICD.git', '.']
-- name: 'python'
-  args: ['demo.py']
+  # Install dependencies
+  - name: 'python:3.7'
+    entrypoint: 'pip'
+    args: ['install', '-r', 'requirements.txt']
+
+  # Deploy to App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy']
+    timeout: '1600s'  # Increase timeout if necessary
