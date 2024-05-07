@@ -1,10 +1,18 @@
-steps:
-  # Install dependencies
-  - name: 'python:3.7'
-    entrypoint: 'pip'
-    args: ['install', '-r', 'requirements.txt']
+steps: 
+- name: "gcr.io/cloud-builders/gcloud" 
+args: 
+[ 
+"functions", 
+"deploy", 
+"kapiva-logger", 
+"--region=asia-east1", 
+"--runtime=python 3.7", 
+"--trigger-http", 
+"--entry-point=helloHttp", 
+"--source=.", 
+"--allow-unauthenticated", 
+] 
+timeout: "1200s" 
+options: 
+logging: CLOUD_LOGGING_ONLY
 
-  # Deploy to App Engine
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy']
-    timeout: '1600s'  # Increase timeout if necessary
